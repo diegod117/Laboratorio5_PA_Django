@@ -12,6 +12,5 @@
     {% for i in integrantes %}
     <li><a class="member-card" href="{% url i.url_name %}">{{ i.nombre }}</a></li>
     {% endfor %}
-    <li><a class="member-card" href="{% url 'cv_martin' %}">Martín Zepeda</a></li>
 </ul>
 {% endblock %}
