@@ -8,6 +8,7 @@ def home(request):
     """
     integrantes = [
         {'nombre': 'CV de ejemplo', 'url_name': 'cv_ejemplo'},
+        {'nombre': 'Diego Cortés Toro', 'url_name': 'cv_diego'},
     ]
     return render(request, 'home.html', {'integrantes': integrantes})
 
@@ -39,3 +40,58 @@ def cv_ejemplo(request):
         ],
     }
     return render(request, 'cv/cv_ejemplo.html', contexto)
+
+
+def cv_diego(request):
+    """CV de Diego Cortés Toro."""
+    contexto = {
+        'nombre': 'Diego Cortés Toro',
+        'titulo': 'Estudiante de Ingeniería Civil en Computación e Informática',
+        'contacto': {
+            'email': 'diegocortt@gmail.com',
+            'telefono': '958568957',
+            'ciudad': 'La Reconquista 1738, La Serena',
+        },
+        'habilidades': [
+            'Java', 'Python', 'C', 'C++',
+            'Diseño y modelado de datos, SQL, consultas y optimización',
+            'Armado y ensamblaje de computadoras',
+            'IoT y embebidos: Arduino',
+        ],
+        'experiencia': [
+            {
+                'cargo': 'Desarrollo e Integración de Sistemas',
+                'empresa': 'Universidad Central | La Serena',
+                'periodo': '2025',
+                'descripcion': 'Proyecto de programación en equipos multidisciplinarios. '
+                               'Aplicación de conceptos de Ingeniería de Software en contextos académicos.',
+            },
+            {
+                'cargo': 'Prototipado con Arduino e IoT',
+                'empresa': 'Universidad Central | La Serena',
+                'periodo': '2025',
+                'descripcion': 'Diseño e implementación de prototipos basados en Arduino, '
+                               'con integración de sensores y sistemas de automatización.',
+            },
+        ],
+        'sobre_mi': 'Estudiante de Ingeniería Civil en Computación e Informática (4° año) con sólida '
+                    'formación en programación, desarrollo de sistemas y hardware. Motivado por aprender el '
+                    'funcionamiento interno de empresas tecnológicas y desarrollarme en un entorno laboral real. '
+                    'Capacidad comprobada de trabajar en equipo, comunicarme efectivamente y adaptarme a nuevos '
+                    'desafíos.',
+        'educacion': {
+            'institucion': 'Universidad Central de Chile - Sede La Serena',
+            'carrera': 'Ingeniería Civil en Computación e Informática',
+            'detalle': 'Coquimbo, Chile | Actualmente cursando 4° año',
+        },
+        'competencias': [
+            'Trabajo en equipo', 'Comunicación efectiva', 'Apertura al aprendizaje',
+            'Adaptabilidad', 'Responsabilidad',
+        ],
+        'idiomas': [
+            {'idioma': 'Español', 'nivel': 'Nativo'},
+            {'idioma': 'Inglés', 'nivel': 'Medio/Alto'},
+        ],
+    }
+    return render(request, 'cv/cv_diego.html', contexto)
+

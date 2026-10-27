@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ nombre }} · CV{% endblock %}
+
+{% block content %}
+<article class="cv">
+    <header class="cv-header">
+        <h1>{{ nombre }}</h1>
+        <p class="cv-title">{{ titulo }}</p>
+    </header>
+
+    <section class="cv-section">
+        <h2>Sobre mí</h2>
+        <p>{{ sobre_mi }}</p>
+    </section>
+
+    <section class="cv-section">
+        <h2>Contacto</h2>
+        <ul class="contact-list">
+            <li><strong>Email:</strong> {{ contacto.email }}</li>
+            <li><strong>Teléfono:</strong> {{ contacto.telefono }}</li>
+            <li><strong>Dirección:</strong> {{ contacto.ciudad }}</li>
+        </ul>
+    </section>
+
+    <section class="cv-section">
+        <h2>Habilidades</h2>
+        <ul class="skills">
+            {% for habilidad in habilidades %}
+            <li>{{ habilidad }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section class="cv-section">
+        <h2>Experiencia</h2>
+        {% for exp in experiencia %}
+        <div class="exp">
+            <h3>{{ exp.cargo }} <span>· {{ exp.empresa }}</span></h3>
+            <p class="exp-period">{{ exp.periodo }}</p>
+            <p>{{ exp.descripcion }}</p>
+        </div>
+        {% endfor %}
+    </section>
+
+    <section class="cv-section">
+        <h2>Datos académicos</h2>
+        <div class="exp">
+            <h3>{{ educacion.carrera }}</h3>
+            <p class="exp-period">{{ educacion.institucion }}</p>
+            <p>{{ educacion.detalle }}</p>
+        </div>
+    </section>
+
+    <section class="cv-section">
+        <h2>Competencias transversales</h2>
+        <ul class="skills">
+            {% for c in competencias %}
+            <li>{{ c }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section class="cv-section">
+        <h2>Idiomas</h2>
+        <ul class="contact-list">
+            {% for i in idiomas %}
+            <li><strong>{{ i.idioma }}:</strong> {{ i.nivel }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <a class="back" href="{% url 'home' %}">&larr; Volver al inicio</a>
+</article>
+{% endblock %}
