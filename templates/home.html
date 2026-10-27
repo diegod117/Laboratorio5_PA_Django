@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio · Sitio CV{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Currículums del grupo</h1>
+    <p>Selecciona a un integrante para ver su CV.</p>
+</section>
+
+<ul class="member-grid">
+    {% for i in integrantes %}
+    <li><a class="member-card" href="{% url i.url_name %}">{{ i.nombre }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
