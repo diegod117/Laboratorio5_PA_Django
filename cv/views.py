@@ -7,10 +7,33 @@ def home(request):
     Para agregar un integrante, añadir un dict a `integrantes` (o su enlace en home.html).
     """
     integrantes = [
-        {'nombre': 'CV de ejemplo', 'url_name': 'cv_ejemplo'},
-        {'nombre': 'Johann Cortés Farias', 'url_name': 'cv_johann'},
-        {'nombre': 'Martín Zepeda', 'url_name': 'cv_martin'},
-        {'nombre': 'Diego Cortés Toro', 'url_name': 'cv_diego'},
+        {
+            'nombre': 'Johann Cortés Farias',
+            'corto': 'Johann',
+            'url_name': 'cv_johann',
+            'foto': 'img/pfp.png',
+            'titulo': 'Estudiante de Ingeniería Civil en Computación e Informática',
+            'resumen': 'Geocuartel, una aplicación web para monitorear plagas y estados '
+                       'fenológicos, y cuatro temporadas en la exportación de fruta de Agrícola Bauzá.',
+        },
+        {
+            'nombre': 'Martín Zepeda',
+            'corto': 'Martín',
+            'url_name': 'cv_martin',
+            'foto': 'img/gengar.jpg',
+            'titulo': 'Estudiante de 4.º año de Ingeniería Civil en Computación e Informática',
+            'resumen': 'Dashboards en Power BI durante su práctica en Codelco División Salvador, '
+                       'prototipos web y un videojuego Tower Defense en Python.',
+        },
+        {
+            'nombre': 'Diego Cortés Toro',
+            'corto': 'Diego',
+            'url_name': 'cv_diego',
+            'foto': 'img/perfil_diego.jpg',
+            'titulo': 'Estudiante de Ingeniería Civil en Computación e Informática',
+            'resumen': 'Java, Python y C++, con prototipos de Arduino e IoT desarrollados '
+                       'en equipos multidisciplinarios.',
+        },
     ]
     return render(request, 'home.html', {'integrantes': integrantes})
 

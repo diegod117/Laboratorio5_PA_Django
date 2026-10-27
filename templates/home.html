@@ -1,16 +1,93 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Inicio · Sitio CV{% endblock %}
+{% block title %}Currículums del grupo · Sitio CV{% endblock %}
 
 {% block content %}
 <section class="hero">
-    <h1>Currículums del grupo</h1>
-    <p>Selecciona a un integrante para ver su CV.</p>
+    <div class="frame hero-grid">
+        <div class="hero-texto">
+            <h1 data-reveal>Currículums del grupo</h1>
+            <p class="lead" data-reveal style="--d: 1">Tres estudiantes de Ingeniería Civil en Computación e Informática de la Universidad Central. Abre una carpeta para leer su CV.</p>
+        </div>
+        <ul class="retratos">
+            {% for i in integrantes %}
+            <li style="--r: {{ forloop.counter0 }}">
+                <a href="{% url i.url_name %}" aria-label="Abrir el CV de {{ i.nombre }}">
+                    <img src="{% static i.foto %}" alt="Foto de perfil de {{ i.nombre }}" width="400" height="400">
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="frame">
+        <div class="carpetas">
+            <div class="carpeta" data-reveal style="--i: 0; --z: 1">
+                <a class="carpeta-tab" href="{% url 'cv_ejemplo' %}">CV de ejemplo</a>
+            </div>
+            {% for i in integrantes reversed %}
+            <div class="carpeta{% if forloop.last %} carpeta-frente{% endif %}" data-reveal style="--i: {{ forloop.counter }}; --z: {{ forloop.counter|add:1 }}; --d: {{ forloop.counter }}">
+                <a class="carpeta-tab" href="{% url i.url_name %}">{{ i.corto }}</a>
+                {% if forloop.last %}
+                <div class="carpeta-cuerpo">
+                    <img class="carpeta-foto" src="{% static i.foto %}" alt="Foto de perfil de {{ i.nombre }}" width="400" height="400">
+                    <div>
+                        <h2>{{ i.nombre }}</h2>
+                        <p class="lead">{{ i.titulo }}</p>
+                        <a class="boton" href="{% url i.url_name %}">Abrir mi CV</a>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </section>
 
-<ul class="member-grid">
-    {% for i in integrantes %}
-    <li><a class="member-card" href="{% url i.url_name %}">{{ i.nombre }}</a></li>
-    {% endfor %}
-</ul>
+<section class="datos">
+    <div class="frame datos-fila">
+        <div class="dato" data-reveal>
+            <p class="dato-valor">3</p>
+            <p>integrantes, una página de CV cada uno</p>
+        </div>
+        <div class="dato" data-reveal style="--d: 1">
+            <p class="dato-valor">4.º año</p>
+            <p>de Ingeniería Civil en Computación e Informática</p>
+        </div>
+        <div class="dato" data-reveal style="--d: 2">
+            <p class="dato-valor">La Serena</p>
+            <p>sede de la Universidad Central</p>
+        </div>
+        <div class="dato dato-logo" data-reveal style="--d: 3">
+            <img src="{% static 'img/ucentral.png' %}" alt="Logo de la Universidad Central" width="1024" height="465">
+        </div>
+    </div>
+</section>
+
+<section class="integrantes" id="integrantes">
+    <div class="frame integrantes-grid">
+        <div class="integrantes-lista">
+            <h2 class="palabra" data-reveal>Integrantes</h2>
+            <div class="barras">
+                {% for i in integrantes %}
+                <details class="barra" data-preview="{{ forloop.counter0 }}" data-reveal style="--d: {{ forloop.counter }}"{% if forloop.first %} open{% endif %}>
+                    <summary>{{ i.nombre }}</summary>
+                    <div class="barra-panel">
+                        <img class="barra-foto" src="{% static i.foto %}" alt="" width="400" height="400" loading="lazy">
+                        <p>{{ i.titulo }}</p>
+                        <p>{{ i.resumen }}</p>
+                        <a class="boton" href="{% url i.url_name %}">Ver CV de {{ i.corto }}</a>
+                    </div>
+                </details>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="vista" aria-hidden="true">
+            {% for i in integrantes %}
+            <img class="vista-img{% if forloop.first %} on{% endif %}" src="{% static i.foto %}" alt="" width="400" height="400" loading="lazy">
+            {% endfor %}
+        </div>
+    </div>
+</section>
 {% endblock %}
