@@ -39,3 +39,40 @@ def cv_ejemplo(request):
         ],
     }
     return render(request, 'cv/cv_ejemplo.html', contexto)
+
+
+def cv_diego(request):
+    """CV de Diego Cortés Toro."""
+    contexto = {
+        'nombre': 'Diego Cortés Toro',
+        'titulo': 'Estudiante de Ingeniería Civil en Computación e Informática',
+        'contacto': {
+            'email': 'diegocortt@gmail.com',
+            'telefono': '958568957',
+            'ciudad': 'La Reconquista 1738, La Serena',
+        },
+        'habilidades': [
+            'Java', 'Python', 'C', 'C++',
+            'Diseño y modelado de datos, SQL, consultas y optimización',
+            'Armado y ensamblaje de computadoras',
+            'IoT y embebidos: Arduino',
+        ],
+        'experiencia': [
+            {
+                'cargo': 'Desarrollo e Integración de Sistemas',
+                'empresa': 'Universidad Central | La Serena',
+                'periodo': '2025',
+                'descripcion': 'Proyecto de programación en equipos multidisciplinarios. '
+                               'Aplicación de conceptos de Ingeniería de Software en contextos académicos.',
+            },
+            {
+                'cargo': 'Prototipado con Arduino e IoT',
+                'empresa': 'Universidad Central | La Serena',
+                'periodo': '2025',
+                'descripcion': 'Diseño e implementación de prototipos basados en Arduino, '
+                               'con integración de sensores y sistemas de automatización.',
+            },
+        ],
+    }
+    return render(request, 'cv/cv_diego.html', contexto)
+
