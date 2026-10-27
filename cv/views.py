@@ -74,6 +74,24 @@ def cv_diego(request):
                                'con integración de sensores y sistemas de automatización.',
             },
         ],
+        'sobre_mi': 'Estudiante de Ingeniería Civil en Computación e Informática (4° año) con sólida '
+                    'formación en programación, desarrollo de sistemas y hardware. Motivado por aprender el '
+                    'funcionamiento interno de empresas tecnológicas y desarrollarme en un entorno laboral real. '
+                    'Capacidad comprobada de trabajar en equipo, comunicarme efectivamente y adaptarme a nuevos '
+                    'desafíos.',
+        'educacion': {
+            'institucion': 'Universidad Central de Chile - Sede La Serena',
+            'carrera': 'Ingeniería Civil en Computación e Informática',
+            'detalle': 'Coquimbo, Chile | Actualmente cursando 4° año',
+        },
+        'competencias': [
+            'Trabajo en equipo', 'Comunicación efectiva', 'Apertura al aprendizaje',
+            'Adaptabilidad', 'Responsabilidad',
+        ],
+        'idiomas': [
+            {'idioma': 'Español', 'nivel': 'Nativo'},
+            {'idioma': 'Inglés', 'nivel': 'Medio/Alto'},
+        ],
     }
     return render(request, 'cv/cv_diego.html', contexto)
 
