@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ nombre }} · CV{% endblock %}
+
+{% block content %}
+<article class="cv">
+    <header class="cv-header cv-header-foto">
+        <img class="cv-foto" src="{% static foto %}" alt="Foto de perfil de {{ nombre }}">
+        <div>
+            <h1>{{ nombre }}</h1>
+            <p class="cv-title">{{ titulo }}</p>
+            <p>{{ edad }} años</p>
+        </div>
+    </header>
+
+    <section class="cv-section">
+        <h2>Contacto</h2>
+        <ul class="contact-list">
+            <li><strong>Email:</strong> {{ contacto.email }}</li>
+                <li><strong>Ciudad:</strong> {{ contacto.ciudad }}</li>
+        </ul>
+    </section>
+
+    <section class="cv-section">
+        <h2>Habilidades</h2>
+        <ul class="skills">
+            {% for habilidad in habilidades %}
+            <li>{{ habilidad }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section class="cv-section">
+        <h2>Experiencia</h2>
+        {% for exp in experiencia %}
+        <div class="exp{% if exp.logo %} exp-con-logo{% endif %}">
+            {% if exp.logo %}
+            <img class="exp-logo" src="{% static exp.logo %}" alt="Logo de {{ exp.empresa }}">
+            {% endif %}
+            <div class="exp-body">
+            <h3>{{ exp.cargo }} <span>· {{ exp.empresa }}</span></h3>
+            {% if exp.periodo %}<p class="exp-period">{{ exp.periodo }}</p>{% endif %}
+            <p>{{ exp.descripcion }}</p>
+            {% if exp.funciones %}
+            <ul class="exp-tasks">
+                {% for funcion in exp.funciones %}
+                <li>{{ funcion }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% if exp.detalle %}
+            <details>
+                <summary>Ver más detalles</summary>
+                <p>{{ exp.detalle }}</p>
+            </details>
+            {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+
+    <section class="cv-section">
+        <h2>Educación</h2>
+        {% for edu in educacion %}
+        <div class="exp{% if edu.logo %} exp-con-logo{% endif %}">
+            {% if edu.logo %}
+            <img class="exp-logo exp-logo-ancho" src="{% static edu.logo %}" alt="Logo de {{ edu.institucion }}">
+            {% endif %}
+            <div class="exp-body">
+                <h3>{{ edu.institucion }}</h3>
+                <p class="exp-period">{{ edu.periodo }}</p>
+                <p>{{ edu.titulo }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+
+    <a class="back" href="{% url 'home' %}">&larr; Volver al inicio</a>
+</article>
+{% endblock %}

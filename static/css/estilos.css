@@ -111,3 +111,43 @@ a { color: var(--accent); text-decoration: none; }
 .exp-period { color: var(--muted); font-size: .85rem; }
 .back { display: inline-block; margin-top: 1rem; }
 .back:hover { text-decoration: underline; }
+
+.exp-tasks { margin: .5rem 0 0 1.2rem; padding: 0; }
+.exp-tasks li { margin-bottom: .3rem; }
+
+.exp-con-logo { display: flex; gap: 1rem; align-items: flex-start; }
+.exp-logo {
+    width: 96px;
+    height: 96px;
+    flex-shrink: 0;
+    object-fit: contain;
+    background: #fffff0;
+    border-radius: .6rem;
+    padding: .25rem;
+}
+.exp-body { flex: 1; min-width: 0; }
+@media (max-width: 520px) {
+    .exp-con-logo { flex-direction: column; }
+}
+
+.cv-header-foto { display: flex; align-items: center; gap: 1.5rem; }
+.cv-foto {
+    width: 140px;
+    height: 140px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px var(--accent), 0 8px 24px rgba(0, 0, 0, .45);
+}
+@media (max-width: 520px) {
+    .cv-header-foto { flex-direction: column; text-align: center; }
+}
+
+.exp-logo-ancho {
+    width: 170px;
+    height: auto;
+    padding: .6rem .8rem;
+    background: #fff;
+}
+@media (max-width: 520px) {
+    .exp-logo-ancho { width: 150px; }
+}
