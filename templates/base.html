@@ -4,31 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sitio de currículums del grupo - Laboratorio 5 Django">
+    <meta name="description" content="Currículums de tres estudiantes de Ingeniería Civil en Computación e Informática de la Universidad Central - Laboratorio 5 Django">
     <title>{% block title %}Sitio CV{% endblock %}</title>
+    <script>document.documentElement.classList.add('js');</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <script src="{% static 'js/site.js' %}" defer></script>
 </head>
 <body>
     <header class="site-header">
-        <div class="container header-inner">
-            <a href="{% url 'home' %}" class="brand">Sitio<span>CV</span></a>
+        <div class="frame header-inner">
+            <a href="{% url 'home' %}" class="brand">Sitio CV</a>
             <nav class="nav" aria-label="Navegación principal">
                 <a href="{% url 'home' %}">Inicio</a>
-                <a href="{% url 'cv_ejemplo' %}">CV de ejemplo</a>
+                <a href="{% url 'cv_johann' %}">Johann</a>
+                <a href="{% url 'cv_martin' %}">Martín</a>
+                <a href="{% url 'cv_diego' %}">Diego</a>
             </nav>
         </div>
     </header>
 
-    <main class="container main">
+    <main class="main">
         {% block content %}{% endblock %}
     </main>
 
     <footer class="site-footer">
-        <div class="container">
-            Programación de Aplicaciones — Unidad III — Laboratorio 5
+        <div class="frame">
+            <div class="postal">
+                <div class="postal-msg">
+                    <p class="postal-title">Hasta pronto</p>
+                    <p>Tres currículums hechos con Django por estudiantes de la Universidad Central, sede La Serena.</p>
+                </div>
+                <ul class="postal-links">
+                    <li><a href="{% url 'cv_johann' %}">CV de Johann Cortés</a></li>
+                    <li><a href="{% url 'cv_martin' %}">CV de Martín Zepeda</a></li>
+                    <li><a href="{% url 'cv_diego' %}">CV de Diego Cortés</a></li>
+                    <li><a href="{% url 'cv_ejemplo' %}">CV de ejemplo</a></li>
+                </ul>
+                <p class="postal-imprint">Programación de Aplicaciones · Unidad III · Laboratorio 5</p>
+            </div>
         </div>
     </footer>
 </body>
