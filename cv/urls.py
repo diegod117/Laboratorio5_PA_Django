@@ -5,6 +5,5 @@ from . import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('cv/ejemplo/', views.cv_ejemplo, name='cv_ejemplo'),
-    # Cada integrante agrega aquí su ruta, ej:
-    # path('cv/nombre/', views.cv_nombre, name='cv_nombre'),
+    path('cv/martin/', views.cv_martin, name='cv_martin'),
 ]
