@@ -8,6 +8,7 @@ def home(request):
     """
     integrantes = [
         {'nombre': 'CV de ejemplo', 'url_name': 'cv_ejemplo'},
+        {'nombre': 'Diego Cortés Toro', 'url_name': 'cv_diego'},
     ]
     return render(request, 'home.html', {'integrantes': integrantes})
 
