@@ -63,10 +63,15 @@
     <section class="cv-section">
         <h2>Educación</h2>
         {% for edu in educacion %}
-        <div class="exp">
-            <h3>{{ edu.institucion }}</h3>
-            <p class="exp-period">{{ edu.periodo }}</p>
-            <p>{{ edu.titulo }}</p>
+        <div class="exp{% if edu.logo %} exp-con-logo{% endif %}">
+            {% if edu.logo %}
+            <img class="exp-logo exp-logo-ancho" src="{% static edu.logo %}" alt="Logo de {{ edu.institucion }}">
+            {% endif %}
+            <div class="exp-body">
+                <h3>{{ edu.institucion }}</h3>
+                <p class="exp-period">{{ edu.periodo }}</p>
+                <p>{{ edu.titulo }}</p>
+            </div>
         </div>
         {% endfor %}
     </section>

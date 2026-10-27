@@ -141,3 +141,13 @@ a { color: var(--accent); text-decoration: none; }
 @media (max-width: 520px) {
     .cv-header-foto { flex-direction: column; text-align: center; }
 }
+
+.exp-logo-ancho {
+    width: 170px;
+    height: auto;
+    padding: .6rem .8rem;
+    background: #fff;
+}
+@media (max-width: 520px) {
+    .exp-logo-ancho { width: 150px; }
+}

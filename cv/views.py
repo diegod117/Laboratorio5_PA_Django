@@ -57,6 +57,7 @@ def cv_johann(request):
         'educacion': [
             {
                 'institucion': 'Universidad Central',
+                'logo': 'img/ucentral.png',
                 'periodo': '2023 - 2026',
                 'titulo': 'Pregrado de Ingeniería Civil en Computación e Informática',
             },
